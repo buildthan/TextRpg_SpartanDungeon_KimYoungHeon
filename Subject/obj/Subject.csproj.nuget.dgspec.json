@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\heon_projects_visual\\Subject\\Subject\\Subject.csproj": {}
+    "C:\\heon_projects_visual\\TextRpg_SpartanDungeon_KimYoungHeon\\Subject\\Subject.csproj": {}
   },
   "projects": {
-    "C:\\heon_projects_visual\\Subject\\Subject\\Subject.csproj": {
+    "C:\\heon_projects_visual\\TextRpg_SpartanDungeon_KimYoungHeon\\Subject\\Subject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\heon_projects_visual\\Subject\\Subject\\Subject.csproj",
+        "projectUniqueName": "C:\\heon_projects_visual\\TextRpg_SpartanDungeon_KimYoungHeon\\Subject\\Subject.csproj",
         "projectName": "Subject",
-        "projectPath": "C:\\heon_projects_visual\\Subject\\Subject\\Subject.csproj",
+        "projectPath": "C:\\heon_projects_visual\\TextRpg_SpartanDungeon_KimYoungHeon\\Subject\\Subject.csproj",
         "packagesPath": "C:\\Users\\a9175\\.nuget\\packages\\",
-        "outputPath": "C:\\heon_projects_visual\\Subject\\Subject\\obj\\",
+        "outputPath": "C:\\heon_projects_visual\\TextRpg_SpartanDungeon_KimYoungHeon\\Subject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

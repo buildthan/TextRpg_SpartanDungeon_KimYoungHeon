@@ -9,6 +9,7 @@ internal class Program
 
     static void Main(string[] args)
     {
+        //hi
         StreamWriter writer;
         writer = File.CreateText("writeTest.txt");
         writer.WriteLine("텍스트 파일 새로 쓰기 성공");

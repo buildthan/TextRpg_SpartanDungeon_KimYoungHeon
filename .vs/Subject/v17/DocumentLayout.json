@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\heon_projects_visual\\Subject\\",
+  "WorkspaceRootPath": "C:\\heon_projects_visual\\TextRpg_SpartanDungeon_KimYoungHeon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5992FE30-BCAC-4096-AF37-C07759B81425}|Subject\\Subject.csproj|c:\\heon_projects_visual\\subject\\subject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5992FE30-BCAC-4096-AF37-C07759B81425}|Subject\\Subject.csproj|c:\\heon_projects_visual\\textrpg_spartandungeon_kimyoungheon\\subject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5992FE30-BCAC-4096-AF37-C07759B81425}|Subject\\Subject.csproj|solutionrelative:subject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\heon_projects_visual\\Subject\\Subject\\Program.cs",
+              "DocumentMoniker": "C:\\heon_projects_visual\\TextRpg_SpartanDungeon_KimYoungHeon\\Subject\\Program.cs",
               "RelativeDocumentMoniker": "Subject\\Program.cs",
-              "ToolTip": "C:\\heon_projects_visual\\Subject\\Subject\\Program.cs",
+              "ToolTip": "C:\\heon_projects_visual\\TextRpg_SpartanDungeon_KimYoungHeon\\Subject\\Program.cs",
               "RelativeToolTip": "Subject\\Program.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAAwH0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-03T00:16:20.042Z",
               "EditorCaption": ""
