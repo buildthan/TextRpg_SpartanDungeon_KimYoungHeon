@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.IO;
+using System.Text;
 using System.Xml.Linq;
+using Newtonsoft.Json;
 
 
 internal class Program
@@ -9,27 +12,50 @@ internal class Program
 
     static void Main(string[] args)
     {
-        //hi
-        StreamWriter writer;
-        writer = File.CreateText("writeTest.txt");
-        writer.WriteLine("텍스트 파일 새로 쓰기 성공");
-        writer.Close();
+        //현재 경로
+        string currentPath = Directory.GetCurrentDirectory();
+        currentPath += "\\Save";
+
+        //현재 경로에 Save 폴더가 존재하는지 확인
+        if (!Directory.Exists(currentPath))
+        {
+            //디렉토리가 없다면 해당 위치에 디렉토리 생성
+            //디렉토리 생성
+            Directory.CreateDirectory(currentPath);
+        }
 
         int startSelect;
 
-        Player p = new Player(GetPlayerName(), GetPlayerClass());
-        //게임을 새로 시작한 경우
-        //입력받은 플레이어 정보를 클래스에 저장.
+        Player p = new Player("Dummy",0);
 
         List<Item> items = new List<Item>();
-        //아이템 리스트 생성
         List<Dungeon> dungeons = new List<Dungeon>();
-        //던전 리스트 생성
 
-        ItemSetting(ref items);
-        DungeonSetting(ref dungeons);
-        //아이템을 생성해 items 리스트에 집어넣어 줍니다.
-        //던전도 마찬가지
+
+        if (!File.Exists(currentPath + "\\playerData.json"))
+        //저장 정보가 없다면 새로 실행
+        {
+            p = new Player(GetPlayerName(), GetPlayerClass());
+            //게임을 새로 시작한 경우
+            //입력받은 플레이어 정보를 클래스에 저장.
+
+
+            ItemSetting(ref items);
+            DungeonSetting(ref dungeons);
+            //아이템을 생성해 items 리스트에 집어넣어 줍니다.
+            //던전도 마찬가지
+        }
+        else
+        //저장 정보가 있다면 불러오기
+        {
+            string playerData = File.ReadAllText(currentPath + "\\playerData.json");
+            p = JsonConvert.DeserializeObject<Player>(playerData);
+
+            string itemData = File.ReadAllText(currentPath + "\\itemData.json");
+            items = JsonConvert.DeserializeObject<List<Item>>(itemData);
+
+            dungeons = new List<Dungeon>();
+        }
 
         while (true)
         {
@@ -53,9 +79,9 @@ internal class Program
                 }
                 else if (inventorySelect == 1) // 장착관리를 누른 경우
                 {
-                    int inventorySelectSetting = ShowInventorySetting(ref p,ref items);
+                    int inventorySelectSetting = ShowInventorySetting(ref p, ref items);
                     //매개변수 수정이 가능하도록 ref를 붙여서 넣어준다.
-                    if(inventorySelectSetting == 0)
+                    if (inventorySelectSetting == 0)
                     {
                         continue;
                     }
@@ -63,7 +89,7 @@ internal class Program
             }
             else if (startSelect == 3) //상점을 고른 경우
             {
-                int storeSelect = ShowStore(ref p,ref items);
+                int storeSelect = ShowStore(ref p, ref items);
                 if (storeSelect == 0) //나가기를 고른 경우
                 {
                     continue; //시작메뉴로 되돌아간다.
@@ -71,20 +97,20 @@ internal class Program
                 else if (storeSelect == 1) // 아이템 구매를 누른 경우
                 {
                     int storeBuySelect = ShowStoreBuy(ref p, ref items);
-                    if(storeBuySelect == 0)
+                    if (storeBuySelect == 0)
                     {
                         continue;
                     }
                 }
                 else if (storeSelect == 2) //아이템 판매를 누른 경우
                 {
-                    int storeSellSelect = ShowStoreSell(ref p,ref items);
+                    int storeSellSelect = ShowStoreSell(ref p, ref items);
                 }
             }
             else if (startSelect == 4) //던전입장을 고른 경우
             {
                 int dungeonSelect = ShowDungeon(ref p, dungeons);
-                if(dungeonSelect == 0)
+                if (dungeonSelect == 0)
                 {
                     continue;
                 }
@@ -102,15 +128,30 @@ internal class Program
                 }
 
             }
-            else if(startSelect == 5) //휴식하기를 고른 경우
+            else if (startSelect == 5) //휴식하기를 고른 경우
             {
                 int restSelect = ShowRest(ref p);
-                if(restSelect == 0)
+                if (restSelect == 0)
                 {
                     continue;
                 }
             }
+            else if (startSelect == 6) //저장 후 종료를 고른 경우
+            {
+                SaveData(p, items, currentPath);
+                break;
+            }
         }
+
+    }
+
+    static void SaveData(Player p, List<Item> items, string currentPath)
+    {
+        string playerData = JsonConvert.SerializeObject(p);
+        File.WriteAllText(currentPath + "\\playerData.json", playerData);
+
+        string itemData = JsonConvert.SerializeObject(items);
+        File.WriteAllText(currentPath + "\\itemData.json", itemData);
 
     }
 
@@ -991,6 +1032,7 @@ internal class Program
             Console.WriteLine("3. 상점");
             Console.WriteLine("4. 던전입장");
             Console.WriteLine("5. 휴식하기");
+            Console.WriteLine("6. 저장 후 종료");
             Console.WriteLine(" ");
             Console.WriteLine("원하시는 행동을 입력해주세요.");
             Console.WriteLine(" ");
@@ -1023,6 +1065,9 @@ internal class Program
             {
             }
             else if (select == 5) //휴식하기를 고른 경우
+            {
+            }
+            else if (select == 6) //저장 후 종료를 고른 경우
             {
             }
             else
