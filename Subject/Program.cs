@@ -28,9 +28,11 @@ internal class Program
         Player p = new Player("Dummy",0);
 
         List<Item> items = new List<Item>();
-        List<Dungeon> dungeons = new List<Dungeon>();
+        //아이템 리스트의 경우 첫 실행한 경우에만 세팅해줘야 함.
 
+        List<Dungeon> dungeons = new List<Dungeon>();
         DungeonSetting(ref dungeons);
+        //던전 리스트는 세이브 파일 존재 여부 상관없이 세팅/
 
 
         if (!File.Exists(currentPath + "\\playerData.json"))
@@ -142,14 +144,14 @@ internal class Program
 
     }
 
-    static void Alert(string s)
+    static void Alert(string s) //복잡한 안내문 줄이기용 메서드
     {
         Console.WriteLine($"{s}");
         Console.WriteLine("엔터를 눌러 되돌아갑니다.");
         Console.ReadLine();
         Console.Clear();
     }
-    static void AlertInput()
+    static void AlertInput() //복잡한 안내문 줄이기용 메서드
     {
         Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
         Console.WriteLine("엔터를 눌러 되돌아갑니다.");
@@ -158,6 +160,7 @@ internal class Program
     }
 
     static void SaveData(Player p, List<Item> items, string currentPath)
+        //저장 기능을 구현하기 위한 메서드
     {
         string playerData = JsonConvert.SerializeObject(p);
         File.WriteAllText(currentPath + "\\playerData.json", playerData);
@@ -180,6 +183,7 @@ internal class Program
     }
 
     static int DungeonResult (ref Player p, int difficulty, List<Dungeon> dungeons)
+    //던전 결과창 출력용 메서드
     {
         int select = 0;
         Random random = new Random();
@@ -304,6 +308,7 @@ internal class Program
     }
 
     static int ShowDungeon(ref Player p, List<Dungeon> dungeons)
+        //던전 선택창 출력용 메서드
     {
         int select = 0;
         
@@ -369,6 +374,7 @@ internal class Program
     }
 
     static int ShowStoreSell(ref Player p, ref List<Item> items )
+        //상점 판매창 출력용 메서드
     {
         int select = 0;
         float sale_rate = 0.85f;
@@ -478,6 +484,7 @@ internal class Program
    
 
     static int ShowRest(ref Player p)
+        //휴식하기 메뉴 출력용 메서드
     {
         int select = 0;
         int restPrice = 500;
@@ -550,6 +557,7 @@ internal class Program
     }
 
     static int ShowStoreBuy(ref Player p, ref List<Item> items)
+        //상점 구매하기 출력용 메서드
     {
         int select = 0;
         
@@ -649,7 +657,8 @@ internal class Program
 
     }
 
-    static int ShowStore(ref Player p,ref List<Item> items) //상점을 보여줍니다.
+    static int ShowStore(ref Player p,ref List<Item> items) 
+        //상점 출력용 메서드
     {
         int select = 0;
 
@@ -728,7 +737,8 @@ internal class Program
         return select;
     }
 
-    static int ShowInventorySetting(ref Player p ,ref List<Item> items) //장착관리
+    static int ShowInventorySetting(ref Player p ,ref List<Item> items)
+        //장착관리 보여주기용 메서드
     {
         int select = 0;
 
@@ -858,6 +868,7 @@ internal class Program
     }
 
     static int ShowInventory(List<Item> items)
+        //인벤토리 보여주기용 메서드
     {
         int select = 0;
 
@@ -926,6 +937,7 @@ internal class Program
     }
 
     static int ShowStatus(Player p)
+        //상태보기용 메서드
     {
         int select = 0;
 
@@ -969,6 +981,7 @@ internal class Program
     }
 
     static int GetPlayerStartSelect()
+        //첫메뉴 보여주기용 메서드
     {
         int select = 0;
 
@@ -1036,6 +1049,7 @@ internal class Program
 
 
     static int GetPlayerClass()
+        //플레이어의 직업 고르기용 메서드
     {
         int playerClass = 0;
         int select;
@@ -1094,7 +1108,7 @@ internal class Program
         
     }
 
-    static string GetPlayerName() //플레이어의 이름을 입력받는 함수
+    static string GetPlayerName() //플레이어의 이름을 입력받는 메서드
     {
         string playerName;
         int select;
@@ -1161,6 +1175,7 @@ internal class Program
     }
 
     static void DungeonSetting(ref List<Dungeon> dungeons)
+        //던전 클래스를 생성 후 리스트에 집어넣기
     {
         Dungeon easy = new Dungeon("쉬운 던전",5, 1000);
         Dungeon normal = new Dungeon("일반 던전",11, 1700);
@@ -1172,6 +1187,7 @@ internal class Program
     }
 
     static void ItemSetting(ref List<Item> items)
+        //아이템 클래스를 생성 후 리스트에 집어넣기
     {
         Item IronArmor = new Item
             (
