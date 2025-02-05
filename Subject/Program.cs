@@ -142,6 +142,14 @@ internal class Program
 
     }
 
+    static void AlertInput()
+    {
+        Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
+        Console.WriteLine("엔터를 눌러 되돌아갑니다.");
+        Console.ReadLine();
+        Console.Clear();
+    }
+
     static void SaveData(Player p, List<Item> items, string currentPath)
     {
         string playerData = JsonConvert.SerializeObject(p);
@@ -197,10 +205,7 @@ internal class Program
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                        Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                        Console.ReadLine();
-                        Console.Clear();
+                        AlertInput();
                         continue;
                     }
 
@@ -213,10 +218,7 @@ internal class Program
                     }
                     else
                     {
-                        Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                        Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                        Console.ReadLine();
-                        Console.Clear();
+                        AlertInput();
                         continue;
                     }
                 }
@@ -266,10 +268,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -288,10 +287,7 @@ internal class Program
             else
             {
 
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
         }
@@ -330,10 +326,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -360,10 +353,7 @@ internal class Program
             }
             else {
 
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -432,10 +422,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -473,10 +460,7 @@ internal class Program
             }
             else
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -515,10 +499,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -557,10 +538,7 @@ internal class Program
             }
             else //예외처리
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -622,10 +600,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -672,10 +647,7 @@ internal class Program
             }
             else //예외처리
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -736,10 +708,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -756,10 +725,7 @@ internal class Program
             }
             else
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -822,10 +788,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -893,10 +856,7 @@ internal class Program
             }
             else
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -951,10 +911,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -966,10 +923,7 @@ internal class Program
             }
             else
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -1003,10 +957,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -1015,10 +966,7 @@ internal class Program
             }
             else
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -1058,10 +1006,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -1085,10 +1030,7 @@ internal class Program
             }
             else
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -1129,10 +1071,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -1151,10 +1090,7 @@ internal class Program
             }
             else
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -1185,10 +1121,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -1209,10 +1142,7 @@ internal class Program
             }
             catch (Exception e)
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
@@ -1227,10 +1157,7 @@ internal class Program
             }
             else
             {
-                Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                AlertInput();
                 continue;
             }
 
