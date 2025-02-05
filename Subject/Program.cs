@@ -12,6 +12,7 @@ internal class Program
 
     static void Main(string[] args)
     {
+        //git test
         //현재 경로
         string currentPath = Directory.GetCurrentDirectory();
         currentPath += "\\Save";
