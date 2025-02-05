@@ -1375,8 +1375,10 @@ public class Player //플레이어에 관한 정보를 저장하는 클래스
         Console.WriteLine("상태보기");
         Console.WriteLine("캐릭터의 정보가 표시됩니다.");
         Console.WriteLine(" ");
+        Console.WriteLine($"이름:{Name}");
         Console.WriteLine($"Lv.{level.ToString("D2")}");
-        Console.WriteLine($"exp : {exp.ToString("D2")} / {level.ToString("D2")}");
+        Console.WriteLine($"exp:{exp.ToString("D2")} / {level.ToString("D2")}");
+        Console.WriteLine(" ");
         Console.WriteLine($"Chad ( {Enum.GetName(typeof(GameClass), PlayerClass)} )");
         Console.Write($"공격력:{attack + item_attack}");
         if(item_attack>0)
