@@ -142,6 +142,13 @@ internal class Program
 
     }
 
+    static void Alert(string s)
+    {
+        Console.WriteLine($"{s}");
+        Console.WriteLine("엔터를 눌러 되돌아갑니다.");
+        Console.ReadLine();
+        Console.Clear();
+    }
     static void AlertInput()
     {
         Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
@@ -332,10 +339,7 @@ internal class Program
 
             if(p.health <= 0 && select > 0) //플레이어의 hp가 0보다 작다면
             {
-                Console.WriteLine("현재 체력이 너무 낮아 진행이 불가능합니다.");
-                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                Console.ReadLine();
-                Console.Clear();
+                Alert("현재 체력이 너무 낮아 진행이 불가능합니다.");
                 continue;
             }
 
@@ -519,19 +523,14 @@ internal class Program
                         p.health = p.maxHealth;
                     }
 
-                    Console.WriteLine("휴식을 완료했습니다.");
-                    Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                    Console.ReadLine();
-                    Console.Clear();
+                    
+                    Alert("휴식을 완료했습니다.");
                     continue;
                     //휴식처리, 체력 100회복
                 }
                 else //보유 금액이 부족하다면
                 {
-                    Console.WriteLine("Gold 가 부족합니다.");
-                    Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                    Console.ReadLine();
-                    Console.Clear();
+                    Alert("Gold 가 부족합니다.");
                     continue;
                     //gold가 부족합니다 출력
                 }
@@ -612,10 +611,7 @@ internal class Program
             {
                 if (items[select - 1].IsBuy == true)
                 {
-                    Console.WriteLine("이미 구매한 아이템입니다.");
-                    Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                    Console.ReadLine();
-                    Console.Clear();
+                    Alert("이미 구매한 아이템입니다.");
                     continue;
                 }
 
@@ -627,20 +623,14 @@ internal class Program
 
                     p.gold = p.gold - items[select - 1].Price;
 
-                    Console.WriteLine("구매를 완료했습니다.");
-                    Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                    Console.ReadLine();
-                    Console.Clear();
+                    Alert("구매를 완료했습니다.");
                     continue;
                 }
 
                 else if(items[select - 1].IsBuy == false
                     && p.gold < items[select - 1].Price)
                 {
-                    Console.WriteLine("Gold가 부족합니다.");
-                    Console.WriteLine("엔터를 눌러 되돌아갑니다.");
-                    Console.ReadLine();
-                    Console.Clear();
+                    Alert("Gold가 부족합니다.");
                     continue;
                 }
                 
@@ -915,7 +905,7 @@ internal class Program
                 continue;
             }
 
-            if (select == 0) //상태보기를 고른 경우
+            if (select == 0) 
             {
             }
             else if(select == 1)
@@ -961,7 +951,7 @@ internal class Program
                 continue;
             }
 
-            if (select == 0) //상태보기를 고른 경우
+            if (select == 0) 
             {
             }
             else
