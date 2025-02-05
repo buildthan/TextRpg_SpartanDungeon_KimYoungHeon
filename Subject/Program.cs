@@ -20,7 +20,6 @@ internal class Program
         if (!Directory.Exists(currentPath))
         {
             //디렉토리가 없다면 해당 위치에 디렉토리 생성
-            //디렉토리 생성
             Directory.CreateDirectory(currentPath);
         }
 
@@ -30,6 +29,8 @@ internal class Program
 
         List<Item> items = new List<Item>();
         List<Dungeon> dungeons = new List<Dungeon>();
+
+        DungeonSetting(ref dungeons);
 
 
         if (!File.Exists(currentPath + "\\playerData.json"))
@@ -41,9 +42,7 @@ internal class Program
 
 
             ItemSetting(ref items);
-            DungeonSetting(ref dungeons);
             //아이템을 생성해 items 리스트에 집어넣어 줍니다.
-            //던전도 마찬가지
         }
         else
         //저장 정보가 있다면 불러오기
@@ -53,8 +52,6 @@ internal class Program
 
             string itemData = File.ReadAllText(currentPath + "\\itemData.json");
             items = JsonConvert.DeserializeObject<List<Item>>(itemData);
-
-            dungeons = new List<Dungeon>();
         }
 
         while (true)
@@ -234,6 +231,11 @@ internal class Program
         int success_rand = random.Next(20, 36); //20~35의 랜덤값 지정
         temp_health = (int)(p.health - (success_rand+random_variant_health));
 
+        if(temp_health<0) //체력이 0보다 작아지면 0으로 고정
+        {
+            temp_health = 0;
+        }
+
         float random_variant_gold = p.attack + p.item_attack;
         float success_rand2 = random.Next((int)random_variant_gold, (int)random_variant_gold * 2);
         temp_gold = (int)p.gold + (int)((float)dungeons[difficulty].Reward * (1 + (success_rand2 * 0.01)));
@@ -311,6 +313,8 @@ internal class Program
             Console.WriteLine("던전입장");
             Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.");
             Console.WriteLine(" ");
+            Console.WriteLine($"현재 체력 : {p.health}");
+            Console.WriteLine(" ");
             Console.WriteLine($"1. 쉬운던전     | 방어력 {dungeons[0].NeedDeffense} 이상 권장");
             Console.WriteLine($"2. 일반던전     | 방어력 {dungeons[1].NeedDeffense} 이상 권장");
             Console.WriteLine($"3. 어려운던전     | 방어력 {dungeons[2].NeedDeffense} 이상 권장");
@@ -327,6 +331,15 @@ internal class Program
             catch (Exception e)
             {
                 Console.WriteLine("잘못된 값입니다. 다시 입력해주십시오.");
+                Console.WriteLine("엔터를 눌러 되돌아갑니다.");
+                Console.ReadLine();
+                Console.Clear();
+                continue;
+            }
+
+            if(p.health <= 0 && select > 0) //플레이어의 hp가 0보다 작다면
+            {
+                Console.WriteLine("현재 체력이 너무 낮아 진행이 불가능합니다.");
                 Console.WriteLine("엔터를 눌러 되돌아갑니다.");
                 Console.ReadLine();
                 Console.Clear();
@@ -1363,6 +1376,7 @@ public class Player //플레이어에 관한 정보를 저장하는 클래스
         Console.WriteLine("캐릭터의 정보가 표시됩니다.");
         Console.WriteLine(" ");
         Console.WriteLine($"Lv.{level.ToString("D2")}");
+        Console.WriteLine($"exp : {exp.ToString("D2")} / {level.ToString("D2")}");
         Console.WriteLine($"Chad ( {Enum.GetName(typeof(GameClass), PlayerClass)} )");
         Console.Write($"공격력:{attack + item_attack}");
         if(item_attack>0)
