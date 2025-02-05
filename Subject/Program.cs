@@ -1404,12 +1404,6 @@ public class Player //플레이어에 관한 정보를 저장하는 클래스
 
     }
 
-
-    public void debug()
-    {
-
-    }
-
 }
 
 public class Dungeon
@@ -1465,10 +1459,6 @@ public class Item //아이템 관리용 클래스
         Console.Write($" {Info}");
     }
 
-    public void debug()
-    {
-        Console.WriteLine("인벤토리 작동중");
-    }
 }
 
 public enum GameClass
